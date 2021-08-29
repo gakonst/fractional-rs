@@ -2,6 +2,45 @@
 
 CLI & Utilities for [fractional.art](https://fractional.art)
 
+## CLI Usage
+
+The CLI uses Flashbots' relay to submit the transactions. No bribe is required as
+you pay via the fee. It also supports [Fireblocks](fireblocks.com) API (requires vaults
+with the RAW feature on).
+
+```
+$ target/debug/fractional -h
+fractional 0.1.0
+
+USAGE:
+    fractional [OPTIONS] <vault> <amount> --eth.url <url>
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+OPTIONS:
+        --fireblocks.key <api-key>                     Your fireblocks API key [env: FIREBLOCKS_API_KEY=]
+        --flashbots.bribe <bribe>                      The amount to be sent to the miner
+        --flashbots.bribe_receiver <bribe-receiver>
+            The address that will receive the bribe. Ideally it should be a smart contract with a block.coinbase
+            transfer
+        --eth.hd_index <index>                         your index in the standard hd path [default: 0]
+        --eth.mnemonic <mnemonic-path>                 Path to your mnemonic file
+        --eth.private_key <private-key>                Your private key string
+        --fireblocks.secret <secret>
+            Path to your fireblocks.key file generated during api account creation [env: FIREBLOCKS_API_SECRET_PATH=]
+
+    -u, --eth.url <url>                                The tracing / archival node's URL
+        --fireblocks.vault <vault-id>
+            The fireblocks vault which will be used for authorizing transactions [env: FIREBLOCKS_VAULT=]
+
+
+ARGS:
+    <vault>     the fractional vault you're calling
+    <amount>    your bid (in wei)
+```
+
 ## Deployments
 
 ### Mainnet

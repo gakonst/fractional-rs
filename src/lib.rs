@@ -16,10 +16,10 @@ use structopt::StructOpt;
 
 #[derive(StructOpt, Clone)]
 pub struct VaultOpts {
-    #[structopt(long, short, help = "the fractional vault you're calling")]
+    #[structopt(help = "the fractional vault you're calling")]
     pub vault: Address,
 
-    #[structopt(long, short, help = "your bid (in wei)")]
+    #[structopt(help = "your bid (in wei)")]
     pub amount: U256,
 
     #[structopt(flatten)]
